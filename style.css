@@ -1,0 +1,15 @@
+body {    
+    background-color: rgb(254,250,239) !important; /* !important -> damit nicht background-color von bootstrap verwendet wird, sondern die hier */
+}
+
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    width: 18rem;
+}
