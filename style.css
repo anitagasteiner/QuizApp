@@ -2,7 +2,6 @@ body {
     background-color: rgb(254,250,239) !important; /* !important -> damit nicht background-color von bootstrap verwendet wird, sondern die hier */
 }
 
-
 .container {
     min-height: 100vh;
     display: flex;
@@ -10,6 +9,15 @@ body {
     justify-content: center;
 }
 
-.card {
-    width: 18rem;
+.questionFooter {
+    /* border-top: 1px solid rgba(0,0,0,0.4); */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    
+}
+
+.quizCard {
+    width: 30rem;
 }
