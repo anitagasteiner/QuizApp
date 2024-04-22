@@ -14,10 +14,21 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 12px;
-    
+    padding-top: 12px;    
 }
 
 .quizCard {
     width: 30rem;
+}
+
+.answers {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.answers:hover {
+    cursor: pointer;
+    background-color: rgba(157,147,101,0.5);
+    border-radius: 5px;
 }
