@@ -26,13 +26,13 @@ questions = [
     {
         "question": "Wer hat die Autoheizung erfunden?",
         "answer1": "Barbara Streisand (1994)",
-        "answer2": "1929 von Henry Ford",
-        "answer3": "1984 von Herbert Grönemeyer",
-        "answer4": "1893 von Margaret Wilcox",
+        "answer2": "Henry Ford (1929)",
+        "answer3": "Herbert Grönemeyer (1984)",
+        "answer4": "Margaret Wilcox (1893)",
         "rightAnswer": 4
     },
     {
-        "question": "Von wem wurde der Raketentreibstoff Hydyne, der erste Flüssigtreibstoff, erfunden?",
+        "question": "Wann wurde der Raketentreibstoff Hydyne, der erste Flüssigtreibstoff, erfunden?",
         "answer1": "1957 von Mary Sherman Morgan",
         "answer2": "1959 von Juri Alexejewitsch Gagarin",
         "answer3": "1951 von Laika Pasova",

@@ -5,25 +5,28 @@ function generateAnswersHTML() {
     let answer4 = questions[currentQuestion]['answer4'];
     return /*html*/`
     <div class="card mb-2">
-        <div class="card-body answers">
+        <div id="answer1" class="card-body answers" onclick="proofAnswer(${currentQuestion}, 1)">
             <b>A</b>
             <div>${answer1}</div>
         </div>
     </div>
     <div class="card mb-2">
-        <div class="card-body answers">
+        <div id="answer2" class="card-body answers" onclick="proofAnswer(${currentQuestion}, 2)">
             <b>B</b>
             <div>${answer2}</div>
         </div>
     </div>
     <div class="card mb-2">
-        <div class="card-body answers">
+        <div id="answer3" class="card-body answers" onclick="proofAnswer(${currentQuestion}, 3)">
             <b>C</b>
             <div>${answer3}</div>
         </div>
     </div>
     <div class="card mb-2">
-        <div class="card-body answers"><b>D</b> <div>${answer4}</div></div>
+        <div id="answer4" class="card-body answers" onclick="proofAnswer(${currentQuestion}, 4)">
+            <b>D</b>
+            <div>${answer4}</div>
+        </div>
     </div>
     `;
 }

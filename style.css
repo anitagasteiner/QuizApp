@@ -2,6 +2,10 @@ body {
     background-color: rgb(254,250,239) !important; /* !important -> damit nicht background-color von bootstrap verwendet wird, sondern die hier */
 }
 
+.h1 {
+    color: rgb(157,147,101) !important;
+}
+
 .container {
     min-height: 100vh;
     display: flex;
@@ -31,4 +35,27 @@ body {
     cursor: pointer;
     background-color: rgba(157,147,101,0.5);
     border-radius: 5px;
+}
+
+.bg-red {
+    background-color: rgb(241, 85, 85);
+}
+
+.bg-green {
+    background-color: rgb(181, 203, 73);
+}
+
+.bg-red, .bg-green {
+    border-radius: 5px;
+    color: white !important;
+}
+
+.bg-red:hover {
+    background-color: rgb(241, 85, 85);
+    cursor: auto;
+}
+
+.bg-green:hover {
+    background-color: rgb(181, 203, 73);
+    cursor: auto;
 }
