@@ -27,7 +27,6 @@
     </nav>
 
     <div class="container">
-
         <div class="card quizCard">
             <img src="img/education-6305113_1280.jpg" class="card-img-top" alt="">
             <div class="card-body">
@@ -35,11 +34,38 @@
                 <div id="answers"></div>
                 <div class="questionFooter">
                     <div>Frage <b id="questionNumber"></b> von <b id="numberOfQuestions"></b> Fragen</div>
-                    <button type="button" class="btn btn-dark" onclick="nextQuestion()">Nächste Frage</button>
+                    <button id="buttonNextQuestion" type="button" class="btn btn-dark" onclick="nextQuestion()">Nächste Frage</button>
                 </div>
             </div>
         </div>
+    </div>
 
+    <div id="dialogYes" class="hide">        
+        <div class="dialog-bg">
+            <div class="dialog-message">
+                <div>Bravo!</div>
+                <button type="button" class="btn btn-dark" onclick="nextQuestion(); handleDialogYes()">Weiter</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="dialogNo" class="hide">        
+        <div class="dialog-bg">
+            <div class="dialog-message">
+                <div>Leider falsch!</div>
+                <button type="button" class="btn btn-dark" onclick="nextQuestion(); handleDialogNo()">Weiter</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="dialogEnd" class="hide">        
+        <div class="dialog-bg">
+            <div class="dialog-message">
+                <div>Du hast <b id="numberOfRightQuestions"></b> von <b id="totalNumberOfQuestions"></b> Fragen richtig beantwortet.</div>
+                <button type="button" class="btn btn-dark" onclick="restart(); handleDialogEnd(); init()">Neustart</button>
+                <button type="button" class="btn btn-dark" onclick="handleDialogEnd()">Schließen</button>
+            </div>
+        </div>
     </div>
     
 </body>
