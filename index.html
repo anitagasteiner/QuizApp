@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 
+    <link rel="icon" type="image/x-icon" href="./img/question-1243504_640.png">
 
     <title>Anitas QuizApp</title>
 
@@ -22,14 +23,18 @@
 
     <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
         <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">Anitas QuizApp</span>
+            <div id="navLeft">
+                <img src="img/question-1243504_640.png" id="quizLogo">
+                <div class="navbar-brand mb-0 h1">Anitas QuizApp</div>
+            </div>
+            <span class="navbar-brand mb-0 impressumLink" onclick="handleImpressum()">Impressum</span>
         </div>
     </nav>
 
     <div class="container">
         <div class="card quizCard">
-            <img src="img/education-6305113_1280.jpg" class="card-img-top" alt="">
-            <div class="card-body">
+            <img src="img/education-6305113_640.jpg" class="card-img-top" alt="">
+            <div class="card-body" id="quizContainer">
                 <h5 class="card-title" id="questionText"></h5>
                 <div id="answers"></div>
                 <div class="questionFooter">
@@ -38,6 +43,20 @@
                     <button id="buttonResult" type="button" class="btn btn-dark hide" onclick="nextQuestion()" disabled>Auswertung</button>
                 </div>
             </div>
+
+            <div class="card-body hide" id="impressumContainer">
+                <h5 class="card-title">Impressum</h5>
+                <img id="closeImpressumBtn" onclick="handleImpressum()" src="img/log-35496_640.png" title="Impressum schließen">
+                <div>
+                    <p>&#169; Anita Gasteiner 2024</p>
+                    <p>Anita Gasteiner
+                    <br>Knotzenbachgasse 8a
+                    <br>1230 Wien</p>
+                    <p><b>Font:</b> Copyright 2018 The Sarabun Project Authors, <a href="https://github.com/cadsondemak/Sarabun" target="_blank">https://github.com/cadsondemak/Sarabun</a></p>
+                    <p><b>Pictures:</b> <a href="https://pixabay.com" target="_blank">Pixabay</a> (royalty-free)</p>
+                </div>
+            </div>
+
         </div>
     </div>
 

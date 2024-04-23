@@ -116,3 +116,8 @@ function noMoreAnswersPossible() { // Funktion wird nach Beantwortung der jeweil
     document.getElementById('answer3').onclick = null;
     document.getElementById('answer4').onclick = null;
 }
+
+function handleImpressum() {
+    document.getElementById('quizContainer').classList.toggle('hide');
+    document.getElementById('impressumContainer').classList.toggle('hide');
+}

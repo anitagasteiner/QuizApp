@@ -2,8 +2,54 @@ body {
     background-color: rgb(254,250,239) !important; /* !important -> damit nicht background-color von bootstrap verwendet wird, sondern die hier */
 }
 
+a {
+    text-decoration: none !important;
+    color: rgb(157,147,101) !important;
+}
+
+a:hover {
+    cursor: pointer;
+    color: rgba(157,147,101,0.7) !important;
+}
+
+#navLeft {
+    display: flex;
+    gap: 10px;
+}
+
+#quizLogo {
+    height: 30px;
+    filter: invert(80%);
+}
+
 .h1 {
     color: rgb(157,147,101) !important;
+}
+
+.impressumLink {
+    font-weight: normal !important;
+    font-size: 18px !important;
+    color: rgb(197,197,198) !important;
+}
+
+.impressumLink:hover {
+    cursor: pointer;
+}
+
+#impressumContainer {
+    position: relative;
+}
+
+#closeImpressumBtn {
+    transform: scaleX(-1);
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+}
+
+#closeImpressumBtn:hover {
+    cursor: pointer;
 }
 
 .container {
