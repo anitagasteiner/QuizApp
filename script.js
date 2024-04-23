@@ -3,6 +3,7 @@ function init() {
     showAnswers();
     showQuestionNumber();
     showNumberOfQuestions();
+    disableButtonNextQuestion();
 }
 
 function showQuestion() { // Aktuelle Frage wird angezeigt.
@@ -27,19 +28,20 @@ function showNumberOfQuestions() { // Anzahl der Fragen insgesamt wird angezeigt
 function nextQuestion() { // Nächste Frage wird angezeigt.
     let numberOfQuestions = questions.length;
     if (currentQuestion < numberOfQuestions - 1) {
-        currentQuestion = currentQuestion + 1;
+        currentQuestion++; // dasselbe wie:  currentQuestion = currentQuestion + 1 -> "currentQuestion" wird um 1 erhöht
         hideButtonNextQuestion(numberOfQuestions);
         init();
     } else {
+        enableButtonResult();
         showDialogEnd();
-        handleDialogEnd();
-        noMoreAnswersPossible();
-    }  
+        handleDialogEnd();        
+    }
 }
 
 function hideButtonNextQuestion(numberOfQuestions) {
     if (currentQuestion == numberOfQuestions - 1) {
         document.getElementById('buttonNextQuestion').classList.add('hide');
+        handleButtonResult();
     }    
 }
 
@@ -49,11 +51,37 @@ function proofAnswer(currentQuestion, selection) { // Diese Funktion wird beim K
     if (rightAnswer == selection) {
         chosenAnswer.classList.add('bg-green'); // chosenAnswer.parentNode.classList.add('bg-success'); -> 'bg-success': von bootstrap vordefinierter grüner Hintergrund, wird durch "parentNode" dem übergeordneten Element hinzugefügt
         rightAnswers = rightAnswers + 1;
-        handleDialogYes();        
+        handleDialogYes();
     } else {
         chosenAnswer.classList.add('bg-red'); // chosenAnswer.parentNode.classList.add('bg-danger'); -> 'bg-danger': von bootstrap vordefinierter roter Hintergrund, wird durch "parentNode" dem übergeordneten Element hinzugefügt
+        document.getElementById('answer' + rightAnswer).classList.add('bg-green');
         handleDialogNo();
     }
+    enableButtonNextQuestion();
+    enableButtonResult();
+}
+
+function enableButtonNextQuestion() {
+    document.getElementById('buttonNextQuestion').disabled = false;
+}
+
+function disableButtonNextQuestion() {
+    document.getElementById('buttonNextQuestion').disabled = true;
+}
+
+function enableButtonResult() {
+    let numberOfQuestions = questions.length;
+    if (currentQuestion == numberOfQuestions - 1) {
+        document.getElementById('buttonResult').disabled = false;
+    }
+}
+
+function disableButtonResult() {
+    document.getElementById('buttonResult').disabled = true;
+}
+
+function handleButtonResult() {
+    document.getElementById('buttonResult').classList.toggle('hide');
 }
 
 function handleDialogYes() {
@@ -77,9 +105,12 @@ function restart() {
     currentQuestion = 0;
     rightAnswers = 0;
     document.getElementById('buttonNextQuestion').classList.remove('hide');
+    handleButtonResult();
+    disableButtonNextQuestion();
+    disableButtonResult();
 }
 
-function noMoreAnswersPossible() { // Nach Beantwortung der letzten Frage wird durch erneutes Klicken auf die einzelnen Antworten keine Funktion mehr aufgerufen.
+function noMoreAnswersPossible() { // Funktion wird nach Beantwortung der jeweiligen Frage aufgerufen; durch erneutes Klicken auf die einzelnen Antworten wird dann keine Funktion mehr aufgerufen.
     document.getElementById('answer1').onclick = null;
     document.getElementById('answer2').onclick = null;
     document.getElementById('answer3').onclick = null;
