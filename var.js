@@ -24,6 +24,14 @@ questions = [
         "rightAnswer": 2
     },
     {
+        "question": "Von wem stammt die Einteilung der Wolken in Cumulus, Stratus, Cirrus und Nimbus?",
+        "answer1": "Christa Kummer",
+        "answer2": "Kevin Hebenstreit",
+        "answer3": "Luke Howard",
+        "answer4": "Ingeborg Auer",
+        "rightAnswer": 3
+    },
+    {
         "question": "Wer hat die Autoheizung erfunden?",
         "answer1": "Barbara Streisand (1994)",
         "answer2": "Henry Ford (1929)",
