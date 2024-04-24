@@ -29,7 +29,7 @@ function nextQuestion() { // Nächste Frage wird angezeigt.
     let numberOfQuestions = questions.length;
     if (currentQuestion < numberOfQuestions - 1) {
         currentQuestion++; // dasselbe wie:  currentQuestion = currentQuestion + 1 -> "currentQuestion" wird um 1 erhöht
-        hideButtonNextQuestion(numberOfQuestions);
+        hideButtonNextQuestion(numberOfQuestions);                
         init();
     } else {
         enableButtonResult();
@@ -51,14 +51,24 @@ function proofAnswer(currentQuestion, selection) { // Diese Funktion wird beim K
     if (rightAnswer == selection) {
         chosenAnswer.classList.add('bg-green'); // chosenAnswer.parentNode.classList.add('bg-success'); -> 'bg-success': von bootstrap vordefinierter grüner Hintergrund, wird durch "parentNode" dem übergeordneten Element hinzugefügt
         rightAnswers++;
+        showProgress();
         handleDialogYes();
     } else {
         chosenAnswer.classList.add('bg-red'); // chosenAnswer.parentNode.classList.add('bg-danger'); -> 'bg-danger': von bootstrap vordefinierter roter Hintergrund, wird durch "parentNode" dem übergeordneten Element hinzugefügt
         document.getElementById('answer' + rightAnswer).classList.add('bg-green');
+        showProgress();
         handleDialogNo();
     }
     enableButtonNextQuestion();
     enableButtonResult();
+}
+
+function showProgress() {
+    let numberOfQuestions = questions.length;
+    let percentage = 100 / numberOfQuestions * (currentQuestion + 1);
+    let percentageRounded = Math.round(percentage);
+    document.getElementById('progressBar').innerHTML = generateProgressHTML(percentageRounded);
+    document.getElementById('progressBar').style.width = `${percentageRounded}%`;
 }
 
 function enableButtonNextQuestion() {

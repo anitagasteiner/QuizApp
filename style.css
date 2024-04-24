@@ -26,6 +26,10 @@ a:hover {
     color: rgb(157,147,101) !important;
 }
 
+.progress {
+    margin-bottom: 10px;
+}
+
 .impressumLink {
     font-weight: normal !important;
     font-size: 18px !important;
@@ -74,12 +78,11 @@ a:hover {
 }
 
 #questionText {
-    width: 400px;
     padding: 8px 0 8px;
+    margin-right: 40px;
 }
 
 .questionFooter {
-    /* border-top: 1px solid rgba(0,0,0,0.4); */
     display: flex;
     justify-content: space-between;
     align-items: center;

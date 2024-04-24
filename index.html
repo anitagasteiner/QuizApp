@@ -35,6 +35,9 @@
         <div class="card quizCard">
             <img src="img/education-6305113_640.jpg" class="card-img-top" id="cardImg">
             <div class="card-body" id="quizContainer">
+                <div class="progress">
+                    <div id="progressBar" class="progress-bar bg-dark" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0 &#x25;</div>
+                </div>
                 <img id="restartBtn" src="img/recycle-159650_640.png" onclick="restart(); init()" title="Neustart">
                 <h5 class="card-title" id="questionText"></h5>
                 <div id="answers"></div>
@@ -43,6 +46,7 @@
                     <button id="buttonNextQuestion" type="button" class="btn btn-dark" onclick="nextQuestion()">Nächste Frage</button>
                     <button id="buttonResult" type="button" class="btn btn-dark hide" onclick="nextQuestion()" disabled>Auswertung</button>
                 </div>
+                
             </div>
 
             <div class="card-body hide" id="impressumContainer">

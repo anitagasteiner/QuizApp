@@ -30,3 +30,9 @@ function generateAnswersHTML() {
     </div>
     `;
 }
+
+function generateProgressHTML(percentageRounded) {    
+    return /*html*/`
+        ${percentageRounded} &#x25;
+    `;
+}
