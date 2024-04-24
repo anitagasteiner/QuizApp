@@ -159,3 +159,7 @@ a:hover {
 .hide  {
     display: none !important;
 }
+
+#dialogEndFlags {
+    height: 100px;
+}
