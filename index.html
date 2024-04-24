@@ -27,13 +27,13 @@
                 <img src="img/question-1243504_640.png" id="quizLogo">
                 <div class="navbar-brand mb-0 h1">Anitas QuizApp</div>
             </div>
-            <span class="navbar-brand mb-0 impressumLink" onclick="handleImpressum()">Impressum</span>
+            <span class="navbar-brand mb-0 impressumLink" onclick="openImpressum()">Impressum</span>
         </div>
     </nav>
 
     <div class="container">
         <div class="card quizCard">
-            <img src="img/education-6305113_640.jpg" class="card-img-top">
+            <img src="img/education-6305113_640.jpg" class="card-img-top" id="cardImg">
             <div class="card-body" id="quizContainer">
                 <img id="restartBtn" src="img/recycle-159650_640.png" onclick="restart(); init()" title="Neustart">
                 <h5 class="card-title" id="questionText"></h5>
@@ -46,8 +46,8 @@
             </div>
 
             <div class="card-body hide" id="impressumContainer">
-                <h5 class="card-title">Impressum</h5>
-                <img id="closeImpressumBtn" onclick="handleImpressum()" src="img/log-35496_640.png" title="Impressum schließen">
+                <h5 class="card-title" id="impressumTitle">Impressum</h5>
+                <img id="closeImpressumBtn" onclick="closeImpressum()" src="img/log-35496_640.png" title="Impressum schließen">
                 <div>
                     <p>&#169; Anita Gasteiner 2024</p>
                     <p>Anita Gasteiner

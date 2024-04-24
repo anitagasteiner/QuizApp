@@ -50,7 +50,7 @@ function proofAnswer(currentQuestion, selection) { // Diese Funktion wird beim K
     let chosenAnswer = document.getElementById('answer' + selection);
     if (rightAnswer == selection) {
         chosenAnswer.classList.add('bg-green'); // chosenAnswer.parentNode.classList.add('bg-success'); -> 'bg-success': von bootstrap vordefinierter grüner Hintergrund, wird durch "parentNode" dem übergeordneten Element hinzugefügt
-        rightAnswers = rightAnswers + 1;
+        rightAnswers++;
         handleDialogYes();
     } else {
         chosenAnswer.classList.add('bg-red'); // chosenAnswer.parentNode.classList.add('bg-danger'); -> 'bg-danger': von bootstrap vordefinierter roter Hintergrund, wird durch "parentNode" dem übergeordneten Element hinzugefügt
@@ -117,7 +117,14 @@ function noMoreAnswersPossible() { // Funktion wird nach Beantwortung der jeweil
     document.getElementById('answer4').onclick = null;
 }
 
-function handleImpressum() {
-    document.getElementById('quizContainer').classList.toggle('hide');
-    document.getElementById('impressumContainer').classList.toggle('hide');
+function openImpressum() {
+    document.getElementById('quizContainer').classList.add('hide');
+    document.getElementById('impressumContainer').classList.remove('hide');
+    document.getElementById('cardImg').src = "img/imprint-1186346_640.jpg";
+}
+
+function closeImpressum() {
+    document.getElementById('quizContainer').classList.remove('hide');
+    document.getElementById('impressumContainer').classList.add('hide');
+    document.getElementById('cardImg').src = "img/education-6305113_640.jpg";
 }
