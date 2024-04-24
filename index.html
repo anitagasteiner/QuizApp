@@ -33,8 +33,9 @@
 
     <div class="container">
         <div class="card quizCard">
-            <img src="img/education-6305113_640.jpg" class="card-img-top" alt="">
+            <img src="img/education-6305113_640.jpg" class="card-img-top">
             <div class="card-body" id="quizContainer">
+                <img id="restartBtn" src="img/recycle-159650_640.png" onclick="restart(); init()" title="Neustart">
                 <h5 class="card-title" id="questionText"></h5>
                 <div id="answers"></div>
                 <div class="questionFooter">
@@ -82,8 +83,10 @@
         <div class="dialog-bg">
             <div class="dialog-message">
                 <div>Du hast <b id="numberOfRightQuestions"></b> von <b id="totalNumberOfQuestions"></b> Fragen richtig beantwortet.</div>
-                <button type="button" class="btn btn-dark" onclick="restart(); handleDialogEnd(); init()">Neustart</button>
-                <button type="button" class="btn btn-dark" onclick="handleDialogEnd()">Schließen</button>
+                <div>
+                    <button type="button" class="btn btn-dark" onclick="restart(); handleDialogEnd(); init()">Neustart</button>
+                    <button type="button" class="btn btn-dark" onclick="handleDialogEnd()">Schließen</button>
+                </div>
             </div>
         </div>
     </div>

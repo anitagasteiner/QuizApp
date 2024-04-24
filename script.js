@@ -105,7 +105,7 @@ function restart() {
     currentQuestion = 0;
     rightAnswers = 0;
     document.getElementById('buttonNextQuestion').classList.remove('hide');
-    handleButtonResult();
+    document.getElementById('buttonResult').classList.add('hide');
     disableButtonNextQuestion();
     disableButtonResult();
 }
