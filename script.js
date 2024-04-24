@@ -71,6 +71,11 @@ function showProgress() {
     document.getElementById('progressBar').style.width = `${percentageRounded}%`;
 }
 
+function resetProgress() {
+    document.getElementById('progressBar').innerHTML = '0 &#x25;';
+    document.getElementById('progressBar').style.width = '0%';
+}
+
 function enableButtonNextQuestion() {
     document.getElementById('buttonNextQuestion').disabled = false;
 }
@@ -118,6 +123,7 @@ function restart() {
     document.getElementById('buttonResult').classList.add('hide');
     disableButtonNextQuestion();
     disableButtonResult();
+    resetProgress();
 }
 
 function noMoreAnswersPossible() { // Funktion wird nach Beantwortung der jeweiligen Frage aufgerufen; durch erneutes Klicken auf die einzelnen Antworten wird dann keine Funktion mehr aufgerufen.
