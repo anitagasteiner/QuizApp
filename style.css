@@ -12,6 +12,13 @@ a:hover {
     color: rgba(157,147,101,0.7) !important;
 }
 
+.hide  {
+    display: none !important;
+}
+
+
+/* Header */
+
 #navLeft {
     display: flex;
     gap: 10px;
@@ -26,34 +33,11 @@ a:hover {
     color: rgb(157,147,101) !important;
 }
 
+
+/* Main */
+
 .progress {
     margin-bottom: 10px;
-}
-
-.impressumLink {
-    font-weight: normal !important;
-    font-size: 18px !important;
-    color: rgb(197,197,198) !important;
-}
-
-.impressumLink:hover {
-    cursor: pointer;
-}
-
-#impressumContainer {
-    position: relative;
-}
-
-#closeImpressumBtn {
-    transform: scaleX(-1);
-    height: 30px;
-    position: absolute;
-    right: 10px;
-    top: 15px;
-}
-
-#closeImpressumBtn:hover {
-    cursor: pointer;
 }
 
 .container {
@@ -128,11 +112,41 @@ a:hover {
     cursor: auto;
 }
 
+
+/* Impressum */
+
 #impressumTitle {
     padding: 10px 0 20px;
 }
 
-/* Dialog */
+.impressumLink {
+    font-weight: normal !important;
+    font-size: 18px !important;
+    color: rgb(197,197,198) !important;
+}
+
+.impressumLink:hover {
+    cursor: pointer;
+}
+
+#impressumContainer {
+    position: relative;
+}
+
+#closeImpressumBtn {
+    transform: scaleX(-1);
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+}
+
+#closeImpressumBtn:hover {
+    cursor: pointer;
+}
+
+
+/* Dialogs */
 
 .dialog-bg {
     background-color: rgba(0, 0, 0, 0.6);
@@ -159,10 +173,35 @@ a:hover {
     text-align: center;
 }
 
-.hide  {
-    display: none !important;
-}
-
 #dialogEndFlags {
     height: 100px;
+}
+
+#dialogEndButtons {
+    display: flex;
+    gap: 5px;
+}
+
+
+/* Responsiveness */
+
+@media screen and (max-width: 400px) {
+
+    .container {
+        padding: 0 !important;
+    }
+
+    .questionFooter {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+}
+
+@media screen and (max-width: 350px) {
+
+    #quizLogo {
+        display: none;
+    }
+    
 }

@@ -76,7 +76,7 @@ function reactionAnswerRight(chosenAnswer) {
 
 function reactionAnswerWrong(chosenAnswer, rightAnswer) {
     audioFail.play();
-    chosenAnswer.classList.add('bg-red'); // chosenAnswer.parentNode.classList.add('bg-danger'); -> 'bg-danger': von bootstrap vordefinierter roter Hintergrund, wird durch "parentNode" dem übergeordneten Element hinzugefügt
+    chosenAnswer.classList.add('bg-red'); // Im Video von DevAk: chosenAnswer.parentNode.classList.add('bg-danger'); -> 'bg-danger': von bootstrap vordefinierter roter Hintergrund, wird durch "parentNode" dem übergeordneten Element hinzugefügt
     document.getElementById('answer' + rightAnswer).classList.add('bg-green');
     handleDialogNo();
 }
