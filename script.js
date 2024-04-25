@@ -25,11 +25,10 @@ function showNumberOfQuestions() { // Anzahl der Fragen insgesamt wird angezeigt
     document.getElementById('numberOfQuestions').innerHTML = questions.length;
 }
 
-function nextQuestion() { // Nächste Frage wird angezeigt.
-    let numberOfQuestions = questions.length;
-    if (currentQuestion < numberOfQuestions - 1) {
-        currentQuestion++; // dasselbe wie:  currentQuestion = currentQuestion + 1 -> "currentQuestion" wird um 1 erhöht
-        hideButtonNextQuestion(numberOfQuestions);                
+function nextQuestion() {
+    if (moreQuestionsLeft()) { // Nächste Frage wird angezeigt.
+        currentQuestion++;
+        hideButtonNextQuestion();                
         init();
     } else {
         enableButtonResult();
@@ -38,31 +37,48 @@ function nextQuestion() { // Nächste Frage wird angezeigt.
     }
 }
 
-function hideButtonNextQuestion(numberOfQuestions) {
-    if (currentQuestion == numberOfQuestions - 1) {
+function moreQuestionsLeft() {
+    return currentQuestion < questions.length - 1;
+}
+
+function hideButtonNextQuestion() {    
+    if (arrivedAtLastQuestion()) {
         document.getElementById('buttonNextQuestion').classList.add('hide');
         handleButtonResult();
     }    
+}
+
+function arrivedAtLastQuestion() {
+    let numberOfQuestions = questions.length;    
+    return currentQuestion == numberOfQuestions - 1;
 }
 
 function proofAnswer(currentQuestion, selection) { // Diese Funktion wird beim Klicken auf eine Antwortmöglichkeit ausgeführt. Folgende Variablen werden übergeben: "currentQuestion" -> welche Frage gerade angezeigt wird; "selection" -> Nummer der gewählten Antwortmöglichkeit (1, 2, 3 oder 4)
     let rightAnswer = questions[currentQuestion]['rightAnswer'];
     let chosenAnswer = document.getElementById('answer' + selection);
     if (rightAnswer == selection) {
-        audioSuccess.play();
-        chosenAnswer.classList.add('bg-green'); // chosenAnswer.parentNode.classList.add('bg-success'); -> 'bg-success': von bootstrap vordefinierter grüner Hintergrund, wird durch "parentNode" dem übergeordneten Element hinzugefügt
+        reactionAnswerRight(chosenAnswer);        
         rightAnswers++;        
-        showProgress();
-        handleDialogYes();
+        showProgress();        
     } else {
-        audioFail.play();
-        chosenAnswer.classList.add('bg-red'); // chosenAnswer.parentNode.classList.add('bg-danger'); -> 'bg-danger': von bootstrap vordefinierter roter Hintergrund, wird durch "parentNode" dem übergeordneten Element hinzugefügt
-        document.getElementById('answer' + rightAnswer).classList.add('bg-green');
-        showProgress();
-        handleDialogNo();
+        reactionAnswerWrong(chosenAnswer, rightAnswer);
+        showProgress();        
     }
     enableButtonNextQuestion();
     enableButtonResult();
+}
+
+function reactionAnswerRight(chosenAnswer) {
+    audioSuccess.play();
+    chosenAnswer.classList.add('bg-green'); // Im Video von DevAk: chosenAnswer.parentNode.classList.add('bg-success'); -> 'bg-success': von bootstrap vordefinierter grüner Hintergrund, wird durch "parentNode" dem übergeordneten Element hinzugefügt
+    handleDialogYes();
+}
+
+function reactionAnswerWrong(chosenAnswer, rightAnswer) {
+    audioFail.play();
+    chosenAnswer.classList.add('bg-red'); // chosenAnswer.parentNode.classList.add('bg-danger'); -> 'bg-danger': von bootstrap vordefinierter roter Hintergrund, wird durch "parentNode" dem übergeordneten Element hinzugefügt
+    document.getElementById('answer' + rightAnswer).classList.add('bg-green');
+    handleDialogNo();
 }
 
 function showProgress() {
@@ -87,8 +103,7 @@ function disableButtonNextQuestion() {
 }
 
 function enableButtonResult() {
-    let numberOfQuestions = questions.length;
-    if (currentQuestion == numberOfQuestions - 1) {
+    if (arrivedAtLastQuestion()) {
         document.getElementById('buttonResult').disabled = false;
     }
 }
