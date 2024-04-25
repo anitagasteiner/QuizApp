@@ -49,11 +49,13 @@ function proofAnswer(currentQuestion, selection) { // Diese Funktion wird beim K
     let rightAnswer = questions[currentQuestion]['rightAnswer'];
     let chosenAnswer = document.getElementById('answer' + selection);
     if (rightAnswer == selection) {
+        audioSuccess.play();
         chosenAnswer.classList.add('bg-green'); // chosenAnswer.parentNode.classList.add('bg-success'); -> 'bg-success': von bootstrap vordefinierter grüner Hintergrund, wird durch "parentNode" dem übergeordneten Element hinzugefügt
-        rightAnswers++;
+        rightAnswers++;        
         showProgress();
         handleDialogYes();
     } else {
+        audioFail.play();
         chosenAnswer.classList.add('bg-red'); // chosenAnswer.parentNode.classList.add('bg-danger'); -> 'bg-danger': von bootstrap vordefinierter roter Hintergrund, wird durch "parentNode" dem übergeordneten Element hinzugefügt
         document.getElementById('answer' + rightAnswer).classList.add('bg-green');
         showProgress();

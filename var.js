@@ -52,3 +52,7 @@ questions = [
 let currentQuestion = 0;
 
 let rightAnswers = 0;
+
+let audioSuccess = new Audio('audio/yes.wav');
+
+let audioFail = new Audio('audio/oh-no.wav');
